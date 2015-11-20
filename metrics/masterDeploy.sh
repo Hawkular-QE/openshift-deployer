@@ -11,8 +11,12 @@ if [ $? -ne 0 ]; then
 fi
 
 ./deployHawkularMetrics.sh
-if [ $? -eq 0 ]; then
-    echo "Hawkular Metrics deploy complete."
+if [ $? -ne 0 ]; then
+    echo "Failed Hawkular Metrics deploy."
+    exit 1
 fi
+
+exit 0
+
 
 
