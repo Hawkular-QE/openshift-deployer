@@ -13,7 +13,6 @@ fi
 ./deployHawkularMetrics.sh
 if [ $? -eq 0 ]; then
     echo "Hawkular Metrics deploy complete."
-    exit 1
 fi
 
 
