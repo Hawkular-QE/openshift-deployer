@@ -1,0 +1,18 @@
+# Docker Image to deploy
+export IMAGE_PREFIX="rcm-img-docker01.build.eng.bos.redhat.com:5001/openshift3/"
+export IMAGE_VERSION="3.1.0"
+
+# DNS Resolvable Service Endpoint
+export HAWKULAR_METRICS_HOSTNAME="hawkular-metrics-openshift-infra.cloud1.jonqe.lab.eng.bos.redhat.com"
+
+# Hawkular Metrics Service Endpoint
+export METRICS_PUBLIC_URL="https://${HAWKULAR_METRICS_HOSTNAME}/hawkular/metrics"
+
+# Openshift Cluster Master URL
+export MASTER_URL="https://openshift-master1.bc.jonqe.lab.eng.bos.redhat.com"
+
+export OPENSHIFT_MASTER_CONFIG="/etc/origin/master/master-config.yaml"
+
+# Cluster user to add. Will be used for Hawkular Metrics deploy
+export USER="deployer"
+
