@@ -1,4 +1,4 @@
-# Back out Hawkular Metrics pods / projecdt
+# Back out Hawkular Metrics pods / project
 
 oc delete all --selector=metrics-infra
 oc delete secrets --selector=metrics-infra
