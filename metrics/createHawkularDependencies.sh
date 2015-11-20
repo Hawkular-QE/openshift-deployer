@@ -18,12 +18,11 @@ else
 fi
 
 # Set OS Cluster USER password
-expect << EOF
-    spawn htpasswd /etc/origin/htpasswd ${USER}
-    expect "New password" { send "redhat\r" }
-    expect "Re-type new password" { send "redhat\r" }
-    expect eof
-EOF
+htpasswd -b /etc/origin/htpasswd ${USER} redhat
+if [ $? -ne 0 ]; then
+    echo "Failed to set cluster password for user \"${USER}\"."
+    exit 1
+fi
 
 expect << EOF
     spawn oc login
