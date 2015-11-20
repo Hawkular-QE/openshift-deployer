@@ -20,16 +20,15 @@ fi
 # Set OS Cluster USER password
 htpasswd -b /etc/origin/htpasswd ${USER} redhat
 if [ $? -ne 0 ]; then
-    echo "Failed to set cluster password for user \"${USER}\"."
+    echo "Failed to set \"${USER}\" cluster password."
     exit 1
 fi
 
-expect << EOF
-    spawn oc login
-    expect "Username" { send "$USER\r" }
-    expect "Password" { send "redhat\r" }
-    expect eof
-EOF
+oc login --username=${USER} --password=redhat
+if [ $? -ne 0 ]; then
+    echo "Failed \"${USER}\" cluster login."
+    exit 1
+fi
 
 oc new-project openshift-infra --display-name="Hawkular Metrics"
 if [ $? -ne 0 ]; then
