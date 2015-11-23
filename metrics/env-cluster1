@@ -9,7 +9,7 @@ export HAWKULAR_METRICS_HOSTNAME="hawkular-metrics-openshift-infra.cloud1.jonqe.
 export METRICS_PUBLIC_URL="https://${HAWKULAR_METRICS_HOSTNAME}/hawkular/metrics"
 
 # Openshift Cluster Master URL
-export MASTER_URL="https://openshift-master1.bc.jonqe.lab.eng.bos.redhat.com"
+export MASTER_URL="https://openshift-master1.bc.jonqe.lab.eng.bos.redhat.com:8443"
 
 export OPENSHIFT_MASTER_CONFIG="/etc/origin/master/master-config.yaml"
 
