@@ -44,7 +44,7 @@ git clone https://github.com/openshift/origin-metrics.git
 cd origin-metrics
 
 # Deploy Hawkular Metrics
-Echo "Deploying Hawkular Metrics."
+echo "Deploying Hawkular Metrics."
 oc process -f metrics.yaml -v HAWKULAR_METRICS_HOSTNAME=${HAWKULAR_METRICS_HOSTNAME},IMAGE_PREFIX=${IMAGE_PREFIX},IMAGE_VERSION=${IMAGE_VERSION},USE_PERSISTENT_STORAGE=false,MASTER_URL=${MASTER_URL},REDEPLOY=true | oc create -f -
 
 ${ROOT}/isHawkularMetricsRunning.sh
