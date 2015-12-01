@@ -3,7 +3,7 @@
 PODS=("hawkular-metrics" "hawkular-cassandra" "heapster")
 POD_STATE="Running"
 
-seconds=60*10
+seconds=60*15
 endTime=$(($(date +%s) + seconds)) # Calc the end time.
 
 for pod in "${PODS[@]}"; do
