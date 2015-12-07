@@ -19,16 +19,14 @@ if [ $? -eq 0 ]; then
     LINE=`awk -v var=metricsPublicURL 'match($0, var){print NR; exit}' ${OPENSHIFT_MASTER_CONFIG}`
     echo "Deleting \"metricsPublicURL\" from \"${OPENSHIFT_MASTER_CONFIG}\"."
     sed -i -e "$LINE"'d' ${OPENSHIFT_MASTER_CONFIG}
-
-    echo "Adding \"${PUBLIC_URL=}\" to \"${OPENSHIFT_MASTER_CONFIG}\"."
-    sed -i "$LINE i ${PUBLIC_URL}" ${OPENSHIFT_MASTER_CONFIG}
 else
-    ## Add metricsPublicURL
+    ## Determine line number to where metricsPublicURL will be inserted
 
     LINE=`awk -v var=publicURL 'match($0, var){print NR; exit}' ${OPENSHIFT_MASTER_CONFIG}`
-    echo "Adding \"${PUBLIC_URL=}\" to \"${OPENSHIFT_MASTER_CONFIG}\"."
-    sed -i "$LINE i ${PUBLIC_URL}" ${OPENSHIFT_MASTER_CONFIG}
 fi
+
+echo "Adding \"${PUBLIC_URL=}\" to \"${OPENSHIFT_MASTER_CONFIG}\"."
+sed -i "$LINE i ${PUBLIC_URL}" ${OPENSHIFT_MASTER_CONFIG}
 
 echo "Updated \"${OPENSHIFT_MASTER_CONFIG}\"."
 exit 0

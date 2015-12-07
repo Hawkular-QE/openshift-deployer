@@ -1,0 +1,11 @@
+export IMAGE_PREFIX="rcm-img-docker01.build.eng.bos.redhat.com:5001/openshift3/"
+export IMAGE_VERSION="3.1.0"
+
+# Hawkular Metrics Service Endpoint
+export METRICS_PUBLIC_URL="https://${HAWKULAR_METRICS_HOSTNAME}/hawkular/metrics"
+
+export OPENSHIFT_MASTER_CONFIG="/etc/origin/master/master-config.yaml"
+
+# Cluster user to add. Will be used for Hawkular Metrics deploy
+export USER="deployer"
+
