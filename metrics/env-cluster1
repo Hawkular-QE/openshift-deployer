@@ -3,6 +3,9 @@
 # DNS Resolvable Service Endpoint
 export HAWKULAR_METRICS_HOSTNAME="hawkular-metrics-openshift-infra.cloud1.jonqe.lab.eng.bos.redhat.com"
 
+# Hawkular Metrics Service Endpoint
+export METRICS_PUBLIC_URL="https://${HAWKULAR_METRICS_HOSTNAME}/hawkular/metrics"
+
 # Openshift Cluster Master URL
 export MASTER_URL="https://openshift-master1.bc.jonqe.lab.eng.bos.redhat.com:8443"
 
