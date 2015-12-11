@@ -9,8 +9,8 @@
     command: "{{item}}"
     with_items:
       - oc delete all --selector=metrics-infra
-      - oc delete secrets --selector=metrics-infra
-      - oc delete sa --selector=metrics-infra
+  #    - oc delete secrets --selector=metrics-infra
+  #    - oc delete sa --selector=metrics-infra
       - oc delete templates --selector=metrics-infra
       - oc delete sa metrics-deployer
       - oc delete secret metrics-deployer

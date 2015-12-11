@@ -8,8 +8,8 @@
   - name: "Add metrics url to master config"
     lineinfile: "state=present dest=/etc/origin/master/master-config.yaml regexp='^\ \ metricsPublicURL' insertbefore='^\ \ publicURL' line='\ \ metricsPublicURL: {{ metrics_public_url }}'"
 
-#  - name: "Restart master service"
-#    service: name=atomic-openshift-master state=restarted
+  - name: "Restart master service"
+    service: name=atomic-openshift-master state=restarted
 
   - name: "Copy metrics-deployer yaml to remote"
     copy: "src=../files/metrics-deployer-setup.yaml dest=/tmp/metrics-deployer-setup.yaml force=yes" 
