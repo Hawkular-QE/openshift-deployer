@@ -1,0 +1,65 @@
+id: hawkular
+kind: Template
+apiVersion: v1
+name: Hawkular deployer Template
+description: A template to created a Hawkular deployer
+metadata:
+  name: ${APP_NAME}
+  annotations:
+      description: Defines how to deploy the Hawkular application
+      tags: instant-app,monitoring,hawkular
+  labels:
+    app: ${APP_NAME}
+objects:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    name: hawkular
+    labels:
+      app: ${APP_NAME}
+  spec:
+    containers:
+    - image: docker.io/hawkular/hawkular-deployer:latest
+      name: hawkular-deployer
+      env:
+        - name: PROJECT
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: APP_NAME
+          value: ${APP_NAME}
+        - name: MASTER
+          value: ${MASTER}
+        - name: REDEPLOY
+          value: ${REDEPLOY}
+        - name: TEST_MODE
+          value: ${TEST_MODE}
+        - name: CASSANDRA_NODES
+          value: ${CASSANDRA_NODES}
+      volumes:
+      - name: empty
+        emptyDir: {} 
+    dnsPolicy: ClusterFirst
+    restartPolicy: Always
+    serviceAccount: deployer
+parameters:
+-
+  description: "Openshift Master node address"
+  name: MASTER
+  value: "openshift-master1.bc.jonqe.lab.eng.bos.redhat.com:8443"
+-
+  description: 'Give your Hawkular app an unique name if you plan on running multiple instances in your project'
+  name: APP_NAME
+  value: "hawkular"
+-
+  description: 'TEST_MODE=true to enable jdoe test account'
+  name: TEST_MODE
+  value: "true"
+-
+  description: "If set to true the deployer will try and delete all the existing components before trying to redeploy."
+  name: REDEPLOY
+  value: "false"
+-
+  description: "Comma-separate list of Cassandra nodes"
+  name: CASSANDRA_NODES
+  value: "127.0.0.1"

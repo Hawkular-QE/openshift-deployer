@@ -29,6 +29,6 @@ oc expose service ${APP_NAME}
 # Determine external service name
 EXT_SERVICE_NAME=$(oc get route ${APP_NAME} --template {{.spec.host}})
 
-oc process -f pod-template.yaml \
+oc process -f dc-template.yaml \
   -v APP_NAME=${APP_NAME},HAWKULAR_URL=${EXT_SERVICE_NAME} \
   | oc create -f -
