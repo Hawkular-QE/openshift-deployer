@@ -27,17 +27,17 @@ objects:
   apiVersion: v1
   kind: DeploymentConfig
   metadata:
-    name: hawkular-deployer
+    name: ${DEPLOYMENT_NAME}
   spec:
     replicas: 1
     selector: 
-      deploymentconfig: hawkular-deployer
+      deploymentconfig: ${DEPLOYMENT_NAME}
     strategy:
       type: Rolling
     template:
       metadata:
         labels:  
-          deploymentconfig: hawkular-deployer
+          deploymentconfig: ${DEPLOYMENT_NAME}
         annotations:
           description: "Template for deploying the Hawkular application"
           tags: "instant-app,hawkular,monitoring"
@@ -72,7 +72,11 @@ parameters:
   name: MASTER
   value: "openshift-master1.bc.jonqe.lab.eng.bos.redhat.com:8443"
 -
-  description: 'Give your instance an unique name'
+  description: 'Name of this deployment. Example, hawkular-master-deployer'
+  name: DEPLOYMENT_NAME
+  value: "hawkular-master-deployer"
+-
+  description: 'Give your Hawkular app an unique name if you plan on running multiple instances in your project'
   name: APP_NAME
   value: "hawkular"
 -

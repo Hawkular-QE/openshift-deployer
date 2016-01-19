@@ -8,6 +8,8 @@ metadata:
   annotations:
       description: Defines how to deploy the Hawkular application
       tags: instant-app
+  labels:
+    app: ${APP_NAME}
 parameters:
 - description: "App name"
   name: APP_NAME
