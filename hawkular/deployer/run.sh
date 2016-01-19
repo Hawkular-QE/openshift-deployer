@@ -17,8 +17,10 @@
 #
 
 set -ex
-
+TOKEN="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)"
+oc login ${MASTER} --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt --token=${TOKEN}
 oc project $PROJECT
+
 oc process -f service-template.yaml -v APP_NAME=${APP_NAME} | oc create -f -
 oc expose service ${APP_NAME}
 

@@ -29,5 +29,4 @@ COPY . ${BIN_DIR}
 
 WORKDIR ${BIN_DIR}
 
-CMD ["./run.sh"]
-USER 1000
+ENTRYPOINT ["./run.sh"]
