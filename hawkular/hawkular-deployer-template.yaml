@@ -2,21 +2,17 @@ id: hawkular
 kind: Template
 apiVersion: v1
 name: Hawkular deployer Template
-description: A template to created a Hawkular deployer
+description: A template to create Hawkular deployer
 metadata:
-  name: ${APP_NAME}
+  name: hawkular-deployer
   annotations:
-      description: Defines how to deploy the Hawkular application
+      description: A template to create Hawkular deployer
       tags: instant-app,monitoring,hawkular
-  labels:
-    app: ${APP_NAME}
 objects:
 - apiVersion: v1
   kind: Pod
   metadata:
-    name: hawkular
-    labels:
-      app: ${APP_NAME}
+    name: hawkular-deployer
   spec:
     containers:
     - image: docker.io/hawkular/hawkular-deployer:latest

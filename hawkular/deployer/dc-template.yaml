@@ -68,3 +68,17 @@ objects:
           env:
             - name: CASSANDRA_LISTEN_ADDRESS
               value: 127.0.0.1        
+parameters:
+- description: "App name"
+  name: APP_NAME
+  value: "hawkular"
+- description: "Enable test mode (create jdoe user)"
+  name: TEST_MODE
+  value: "true"
+- description: "Cassandra node address"
+  name: CASSANDRA_NODES
+  value: 127.0.0.1
+- description: "External Hawkular URL for keycloak"
+  name: HAWKULAR_URL
+  value: localhost
+
