@@ -17,10 +17,6 @@
 #
 kind: Template
 apiVersion: v1
-metadata:
-  annotations:
-    description: "Template for deploying the Hawkular application"
-    tags: "instant-app,hawkular,monitoring"
 objects:
 -
   apiVersion: v1
@@ -30,16 +26,13 @@ objects:
   spec:
     replicas: 1
     selector: 
-      deploymentconfig: ${APP_NAME}
+      app: ${APP_NAME}
     strategy:
       type: Rolling
     template:
       metadata:
         labels:  
-          deploymentconfig: ${APP_NAME}
-        annotations:
-          description: "Template for deploying the Hawkular application"
-          tags: "instant-app,hawkular,monitoring"
+          app: ${APP_NAME}
       spec:
         containers:
         - name: hawkular
