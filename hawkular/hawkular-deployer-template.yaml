@@ -12,7 +12,7 @@ objects:
 - apiVersion: v1
   kind: Pod
   metadata:
-    name: hawkular-deployer
+    name: ${APP_NAME}-deployer
   spec:
     containers:
     - image: docker.io/hawkular/hawkular-deployer:latest
@@ -40,11 +40,11 @@ objects:
     serviceAccount: deployer
 parameters:
 -
-  description: "Openshift Master node address"
+  description: "Openshift Master URL"
   name: MASTER
   value: "openshift-master1.bc.jonqe.lab.eng.bos.redhat.com:8443"
 -
-  description: 'Give your Hawkular app an unique name if you plan on running multiple instances in your project'
+  description: 'Give each Hawkular deployment a unique name if you plan on running multiple instances in your project'
   name: APP_NAME
   value: "hawkular"
 -

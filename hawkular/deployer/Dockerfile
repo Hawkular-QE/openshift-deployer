@@ -18,7 +18,7 @@
 FROM openshift/origin:latest
 
 # The image is maintained by the Hawkular team
-MAINTAINER Hawkular Metrics <hawkular-dev@lists.jboss.org>
+MAINTAINER Hawkular<hawkular-dev@lists.jboss.org>
 
 ENV BIN_DIR=/opt/deploy \
     PROCESSING_DIR=/temp/deployer
