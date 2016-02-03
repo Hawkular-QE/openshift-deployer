@@ -1,0 +1,25 @@
+[OSEv3:children]
+masters
+nodes
+
+[OSEv3:vars]
+debug_level=2
+deployment_type=origin
+ansible_ssh_user=root
+
+# Enable cluster metrics
+use_cluster_metrics=true
+metrics_external_service=hawkular-metrics-openshift-infra.cloud1.hawkular.org
+metrics_image_prefix=registry.access.redhat.com/openshift3/
+metrics_image_version=3.1.0
+
+# Service subdomain
+osm_default_subdomain=cloud1.hawkular.org
+
+[masters]
+openshift.cloud1.hawkular.org
+
+[nodes]
+openshift.cloud1.hawkular.org openshift_node_labels="{'region':'infra'}" openshift_hostname=openshift.cloud1.hawkular.org openshift_public_hostname=openshift.cloud1.hawkular.org
+node1.cloud1.hawkular.org openshift_node_labels="{'region':'primary'}" openshift_hostname=node1.cloud1.hawkular.org openshift_public_hostname=node1.cloud1.hawkular.org
+node2.cloud1.hawkular.org openshift_node_labels="{'region':'primary'}" openshift_hostname=node2.cloud1.hawkular.org openshift_public_hostname=node2.cloud1.hawkular.org
