@@ -1,5 +1,5 @@
-export IMAGE_PREFIX="registry.access.redhat.com/openshift3/"
-export IMAGE_VERSION="3.1.0"
+export IMAGE_PREFIX="brew-pulp-docker01.web.prod.ext.phx2.redhat.com:8888/openshift3/"
+export IMAGE_VERSION="3.2.0"
 
 export OPENSHIFT_MASTER_CONFIG="/etc/origin/master/master-config.yaml"
 
